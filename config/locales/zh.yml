@@ -1,0 +1,19 @@
+zh:
+  layouts:
+    application:
+      home: 首页
+      wormholes: 虫洞查询
+      infos: 虫洞信息
+  wormholes:
+    show:
+      search: 搜索
+    index:
+      title: 虫洞查询
+      search: 搜索
+  infos:
+    index:
+      title: 虫洞信息
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"
+      short: "%Y-%m-%d"

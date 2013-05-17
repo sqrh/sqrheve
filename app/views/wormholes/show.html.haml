@@ -1,0 +1,58 @@
+- model_class = Wormhole
+.page-header
+  .span6
+    %h1=params[:id]
+    %h4=@wh.cls.to_s+'级虫洞' unless @error
+  .span4
+    %form.form-search{action: '/wormholes/'}
+      %input.input-medium.search-query.typeahead.wh{type: "text", name: "name", placeholder: "输入星系", "data-provide"=> "typeahead", value: params[:id], autocomplete: "off"}
+      %button.btn{type: "submit"}
+        =t '.search'
+  .clearfix
+
+.row
+  .span5.offset1
+    -if @error
+      没有关于该星系的信息，请检查是否输入了正确的编号
+    -else
+      %h3 行星信息
+      %ul
+        -@wh.planets.each do |pl|
+          %li=pl
+  .span2.offset1
+    -unless @error
+      .climate
+        %h3 天象
+        = @wh.climate
+
+        %h5 对船只影响如下：单位为%
+        - if @wh.climate.length>0
+          %ul
+            - @wh.get_climate_affects.each do |af|
+              %li= af
+        - else
+          %p 无
+      .static-connection
+        %h3 永连
+        - if @wh.scs.count > 0
+          %ul
+            - @wh.scs.each do |sc|
+              %li= sc
+          %h5 0和00都指00地区，其他数字则表示洞的等级。
+        - else
+          %p 无
+  .clearfix
+
+-unless @error
+  .row
+    .span8.offset1
+      %form.comment-form{action: "/wormholes/#{@wh.name}/comment", method: 'POST'}
+        %textarea.span6{name: "body"}
+        %button.btn.btn-large.btn-primary 发留言
+      .clearfix
+      %ul.comments
+        - @wh.comments.sort(:created_at.desc).each do |cmt|
+          %li
+            .time= l cmt.created_at
+            .body= cmt.body
+            .clearfix

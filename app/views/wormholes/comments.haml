@@ -1,0 +1,14 @@
+.hero
+  %h3 最新20条虫洞留言
+  .row
+    .span10
+      %ul.comments
+        - @lac.each do |cmt|
+          %li
+            .time
+              %p= l cmt.created_at
+              %p
+                发布于 
+                = link_to cmt.commentable.name, "/wormholes/#{cmt.commentable.name}"
+            .body= cmt.body
+            .clearfix

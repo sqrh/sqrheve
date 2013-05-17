@@ -1,0 +1,27 @@
+= form_for @wormhole, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :name, "Name", :class => 'control-label'
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :cls, "Class", :class => 'control-label'
+    .controls
+      = f.text_field :cls
+  .control-group
+    = f.label :scs_in_string, "Static Links", :class => 'control-label'
+    .controls
+      = f.text_field :scs_in_string
+  .control-group
+    = f.label :climate, "Climate", :class => 'control-label'
+    .controls
+      = f.text_field :climate
+      %span.help_inline
+        可选： 
+        = Climate.all.map{|a|a.name}.uniq.reduce{|a,b| "#{a} #{b}"}
+  .control-group
+    = f.label :rpi, "Reset Planet Info?", :class => 'control-label'
+    .controls
+      = f.check_box :rpi
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), wormholes_path, :class => 'btn'

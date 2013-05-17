@@ -1,0 +1,13 @@
+- model_class = Info
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+.span9.offset1
+  %ul.infos-list
+    - @infos.each do |info|
+      %a{:href=> info_url(info)}
+        %li
+          .info-time= l(info.created_at, :format => :short)
+          .info-name= info.name
+          .info-comments-count= info.comments.count
+          .clearfix
+.clearfix

@@ -1,0 +1,25 @@
+- model_class = Info
+.page-header
+  .span8
+    %h1=@info.name
+  .span2
+    %button#toggle-bg.btn.btn-large 不显示背景
+  .clearfix
+.row
+  .offset1.span9
+    =raw @info.rc
+  .clearfix
+
+.row
+  .span9.offset1
+    %form.comment-form{action: "/infos/#{@info.id}/comment", method: 'POST'}
+      %textarea.span6{name: "body"}
+      %button.btn.btn-large.btn-primary 发留言
+    .clearfix
+    %ul.comments
+      - @info.comments.sort(:created_at.desc).each do |cmt|
+        %li
+          .time= l cmt.created_at
+          .body= cmt.body
+          .clearfix
+

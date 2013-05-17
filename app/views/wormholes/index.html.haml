@@ -1,0 +1,35 @@
+- model_class = Wormhole
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+.row
+  .span3
+  .span6
+    %form.form-search
+      %input.input-xlarge.search-query.typeahead.wh{type: "text", name: "name", placeholder: "输入星系", "data-provide"=> "typeahead", autocomplete: "off"}
+      %button.btn{type: "submit"}
+        %i.icon-search
+        =t '.search'
+  .span3
+  .clearfix
+.hero
+  %h3 相关信息
+  .row
+  .span10
+    %ul.infos-list
+      %li
+        %a{:href=> "/infos/top"}
+          .info-time 置顶
+          .info-name -----广告位招租-----
+          .clearfix
+
+      - @infos.each do |info|
+        %li
+          %a{:href=> info_url(info)}
+            .info-time= l(info.created_at, :format => :short)
+            .info-name= info.name
+            .info-comments-count
+              = info.comments.count
+              %i.icon-comment.icon-white
+            .clearfix
+  .clearfix
+  

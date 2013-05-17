@@ -1,0 +1,106 @@
+.page-header {
+  padding-top:40px;
+  border-bottom: 1px solid #444;
+  .form-search {
+    margin-top:40px;
+    padding: 5px;
+  }
+}
+.hero {
+  padding:40px;
+  padding-top:80px;
+}
+.main-part {
+  margin-top: 40px;
+  padding: 50px;
+  padding-top: 0px;
+  background: rgba(33, 44, 44, 0.5);
+  min-height: 600px;
+}
+footer {
+  padding-top: 20px;
+	text-align: center;
+	a {
+		color: #aabbcc;
+	}
+}
+body {
+  background: url(html-bg.jpg) top center no-repeat #000;
+  overflow-y:scroll;
+}
+
+.form-show {
+  margin-top:35px;
+  margin-bottom: 0;
+  margin-left:100px;
+}
+.static-connection {
+  margin-top: 20px;
+}
+.comment-form {
+  margin: 50px;
+  margin-top: 100px;
+  textarea {
+    float: left;
+  }
+  button {
+    float: right;
+  }
+}
+ul.comments {
+  margin: 40px;
+  li {
+    font-size: 14px;
+    list-style: none;
+    border-bottom: 1px solid #aaa;
+    .body {
+      float:left;
+      padding: 15px;
+    }
+    .time {
+      float:left;
+      width: 120px;
+      padding: 15px;
+    }
+  }
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+       background-color: rgba(255,255,255,0.1);
+}
+
+ul.infos-list {
+  font-size: 1.5em;
+  list-style-type: none;
+  div {
+    margin: 20px;
+  }
+  .info-time, .info-name {
+    float: left;
+  }
+  .info-comments-count {
+    float: right;
+  }
+  li:hover {
+    background: rgba(0,0,0, 0.2);
+    border-radius: 5px;
+  }
+  a {
+    color: #cee;
+    &:hover {
+      text-decoration:none;
+    }
+  }
+}
+#gototop {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  display: none;
+    background: rgba(228,250,228, 0.2);
+  &:hover{
+    background: rgba(228, 250, 228, 0.5);
+  }
+
+}
